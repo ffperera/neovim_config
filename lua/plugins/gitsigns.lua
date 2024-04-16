@@ -3,5 +3,6 @@ return {
   opts = {
     numhl = true,
     max_file_length = 10000,
+    current_line_blame = true,
   },
 }
