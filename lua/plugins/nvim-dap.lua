@@ -16,8 +16,13 @@ return {
       {
         type = "php",
         request = "launch",
-        name = "Listen for Xdebug",
+        name = "Listen for Xdebug from nvim-dap config",
         port = 9003,
+        serverReadyAction = {
+          pattern = "Development Server \\(http://localhost:([0-9]+)\\) started",
+          uriFormat = "http://localhost:%s",
+          action = "openExternally",
+        },
       },
     }
   end,
