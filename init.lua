@@ -41,3 +41,22 @@ vim.opt.spelllang = "es_es"
 --     port = 9003,
 --   },
 -- }
+
+require("dapui").setup()
+local dap = require("dap")
+local dapui = require("dapui")
+
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
+end
+
+vim.keymap.set("n", "<leader>di", require("dapui").toggle)
