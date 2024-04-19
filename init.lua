@@ -20,3 +20,24 @@ vim.filetype.add({
 
 vim.treesitter.language.register("markdown", "mdx")
 vim.opt.spelllang = "es_es"
+
+-- Xdebug
+-- nvim-dap + vscode-php-debug
+-- vscode-php-debug es un cliente para xdebug escrito en js - corre en node
+--
+-- local dap = require("dap")
+--
+-- dap.adapters.php = {
+--   type = "executable",
+--   command = "node",
+--   args = { "/media/felipe/Datos/Proyectos/repos/vscode-php-debug/out/phpDebug.js" },
+-- }
+--
+-- dap.configurations.php = {
+--   {
+--     type = "php",
+--     request = "launch",
+--     name = "Listen for Xdebug nvim config",
+--     port = 9003,
+--   },
+-- }
