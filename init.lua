@@ -12,6 +12,11 @@ vim.o.smartindent = true
 -- CONTROL+S para guardar
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
+-- CONTROL+m  siguiente buffer
+-- CONTROL+n  buffer anterior
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-m>", "<cmd>bnext<cr><esc>", { desc = "Next buffer" })
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-n>", "<cmd>bprev<cr><esc>", { desc = "Prev buffer" })
+
 vim.filetype.add({
   extension = {
     mdx = "mdx",
