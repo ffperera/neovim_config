@@ -2,5 +2,5 @@
 -- mdx files (highlight por ejemplo) a través de este fichero
 -- está configurado en init.lua
 --
-vim.opt.wrap = true
-vim.opt.textwidth = 80
+-- vim.opt.wrap = true
+-- vim.opt.textwidth = 80
