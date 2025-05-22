@@ -17,8 +17,8 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Sav
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-m>", "<cmd>bnext<cr><esc>", { desc = "Next buffer" })
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-n>", "<cmd>bprev<cr><esc>", { desc = "Prev buffer" })
 
-vim.keymap.set({ "i", "n" }, "<A-up>", "<cmd>m .-2<cr>==", { desc = "Move line" })
-vim.keymap.set({ "i", "n" }, "<A-down>", "<cmd>m .+1<cr>==", { desc = "Move line" })
+vim.keymap.set({ "i", "n" }, "<A-up>", "<cmd>m .-2<cr>", { desc = "Move line" })
+vim.keymap.set({ "i", "n" }, "<A-down>", "<cmd>m .+1<cr>", { desc = "Move line" })
 
 vim.keymap.set({ "n" }, "<cr>", "o<esc>", { desc = "Add line in normal mode" })
 vim.keymap.set({ "i" }, "<cr>", "<cr>", { desc = "Avoid extrange issue" })
