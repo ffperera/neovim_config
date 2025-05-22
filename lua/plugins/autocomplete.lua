@@ -50,11 +50,25 @@ return {
       enabled = false,
     },
 
+    -- desactivar <cr> como tecla para aceptar
+    -- tab permite aceptar la selección sólo si está desplegada la ventana de autocompletado
+
     keymap = {
       preset = "enter",
-      ["<C-y>"] = { "select_and_accept" },
-      ["<Tab>"] = { "select_and_accept" },
       ["<CR>"] = {},
+      ["<C-y>"] = { "select_and_accept" },
+      --["<Tab>"] = { "select_and_accept" },
+      ["<Tab>"] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        "snippet_forward",
+        "fallback",
+      },
     },
   },
 }
