@@ -21,7 +21,24 @@ vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Sav
 vim.keymap.set({ "i", "n" }, "<A-up>", "<cmd>m .-2<cr>", { desc = "Move line" })
 vim.keymap.set({ "i", "n" }, "<A-down>", "<cmd>m .+1<cr>", { desc = "Move line" })
 
-vim.keymap.set({ "n" }, "<cr>", "o<esc>", { desc = "Add line in normal mode" })
+-- vim.keymap.set({ "n" }, "<cr>", "o<esc>", { desc = "Add line in normal mode" })
+-- salto de línea en modo normal
+-- pero sólo aplica a buffers normales,
+-- para que no interfiera con quickfix / locations
+vim.keymap.set("n", "<cr>", function()
+  local ignore_buftypes = { "quickfix", "nofile" }
+  local ignore_filetypes = { "qf", "TelescopePrompt" }
+  local buftype = vim.bo.buftype or ""
+  local filetype = vim.bo.filetype or ""
+  if
+    vim.tbl_contains(ignore_buftypes, buftype)
+    or vim.tbl_contains(ignore_filetypes, filetype)
+    or not vim.bo.modifiable
+  then
+    return "<CR>"
+  end
+  return "o<esc>"
+end, { expr = true, desc = "Add line in normal mode (except special buffers)" })
 
 vim.filetype.add({
   extension = {
