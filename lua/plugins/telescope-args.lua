@@ -20,6 +20,8 @@ return {
           require("telescope").extensions.live_grep_args.live_grep_args()
         end,
         desc = "Grep por contenido (con soporte de argumentos)",
+        mode = "n",
+        remap = false,
       },
     },
   },

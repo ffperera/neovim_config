@@ -4,3 +4,5 @@
 --
 
 -- vim.keymap.set({ "i" }, "<cr>", "<cr>", { desc = "Avoid extrange issue" })
+
+-- evitar que <leader>/ lance Grep(Root) en lugar de live_grep_args

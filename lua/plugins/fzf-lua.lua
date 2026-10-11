@@ -5,4 +5,18 @@ return {
   -- or if using mini.icons/mini.nvim
   -- dependencies = { "nvim-mini/mini.icons" },
   opts = {},
+
+  keys = {
+    -- Desactivamos el atajo por defecto que usa fzf-lua en <leader>/
+    { "<leader>/", false },
+
+    -- Asignamos fzf-lua live_grep a un nuevo atajo
+    {
+      "<leader>fG",
+      function()
+        require("fzf-lua").live_grep()
+      end,
+      desc = "Fzf Live Grep (Root)",
+    },
+  },
 }
